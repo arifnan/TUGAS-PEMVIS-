@@ -1,2 +1,19 @@
-print['januari','febuari','maret','april','mei']
-print['21383','30938','maret','34321','22513']
+import matplotlib.pyplot as plt
+import json
+from urllib.request import urlopen
+
+url = 'https://github.com/arifnan/TUGAS-PEMVIS-.git'
+response = urlopen(url)
+
+data_json = json.loads(response.read())
+dict = data_json
+
+x = list(dict.keys())
+y = list(dict.values())
+ 
+plt.xlabel('bulan')
+plt.ylabel('pengunjung laki-laki')
+plt.plot(x,y)
+plt.title('Grafik Pengunjung Perpustakaan Berdasarkan Jenis kelamin')
+plt.show()
+
